@@ -30,7 +30,7 @@ public class ProductController {
     }
 
     /**
-     *
+     * este metodo hace uso del servicio productbyid
      * @param name
      * @return
      */
@@ -39,12 +39,12 @@ public class ProductController {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(productService.getProductById(name));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not found product " + e);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not found product ");
         }
     }
 
     /**
-     *
+     * este metodo hace uso del servicio saveproduct
      * @param product
      * @return
      */
@@ -58,7 +58,7 @@ public class ProductController {
     }
 
     /**
-     *
+     * este metodo permite actualizar  el stock de un producto
      * @param name
      * @param stock
      * @return

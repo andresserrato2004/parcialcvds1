@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Product {
+public class Product{
 
     private String name;
     private int price;
@@ -29,6 +29,8 @@ public class Product {
         this.stock = stock;
         this.category = category;
     }
+
+
 
     public String getName(){
         return name;
