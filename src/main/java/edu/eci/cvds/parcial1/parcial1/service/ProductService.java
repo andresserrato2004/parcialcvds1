@@ -2,6 +2,8 @@ package edu.eci.cvds.parcial1.parcial1.service;
 
 
 import edu.eci.cvds.parcial1.parcial1.entity.Product;
+import edu.eci.cvds.parcial1.parcial1.observer.LogAgent;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -10,6 +12,8 @@ import java.util.Map;
 @Service
 public class ProductService {
     private Map<String, Product> products = new HashMap<String, Product>();
+    @Autowired
+    private LogAgent logAgent;
 
 
     public ProductService() throws Exception {
@@ -17,6 +21,7 @@ public class ProductService {
         Product prod2 = new Product("vaca",1000, 7,"ganado");
         SaveProduct(prod2);
         SaveProduct(prod1);
+        updateStock("vaca" , 10);
 
     }
 
@@ -49,6 +54,7 @@ public class ProductService {
         }else{
             Product product = products.get(name);
             product.setStock(stock);
+            logAgent.update(name);
             return product;
         }
     }
